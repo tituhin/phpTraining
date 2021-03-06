@@ -48,12 +48,12 @@
         </tr>
     </thead>
     <tbody>
-   <?php $count = 0;
-        foreach ($users as $key => $value) { ++$count; ?> 
+   <?php 
+        foreach ($users as $key => $value) { ?> 
 
 	    	<tr>
 	        	<td>
-	            	<label><?=$count?></label>
+	            	<label><?=++$key?></label>
 	            </td>
 	            <td><?=$value['name']?></td>
 	            <td><?=$value['email']?></td>
@@ -88,7 +88,10 @@
 			    swal("Poof! Your imaginary file has been deleted!", {
 			      icon: "success",
 			    });
-			    window.location.href = "user-delete-edit.php?user-delete="+id;
+			    window.setTimeout(function(){
+			    	window.location.href = "user-delete-edit.php?user-delete="+id;
+
+			    }, 5000);
 			  } else {
 			    swal("Your imaginary file is safe!");
 			  }
