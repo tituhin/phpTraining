@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	if (!isset($_SESSION['email'])) {
-		// header("location: signin.php")
+	if (!isset($_SESSION['id'])) {
+		header("location: signin.php");
 	}
  ?>

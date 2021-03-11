@@ -1,5 +1,4 @@
 <?php 
-	require_once 'dbcontext.php';
 	require_once 'session.php';
 	require_once 'header.php';
 	$id = $_GET['user-edit'];
@@ -11,6 +10,8 @@
 	<a class="breadcrumb-item" href="index.php">User</a>
 	<span class="breadcrumb-item active">Edit</span>
 </nav>
+<div class="sl-pagebody">
+  
 <div class="card pd-20 pd-sm-40">
     <h6 class="card-body-title">Edit User</h6>
     <form action="user-delete-edit.php" method="post" class="col-lg-6 mx-auto">
@@ -27,8 +28,10 @@
             </div>
         
     </form>
-          
 </div>
+
+  
+
 
  <?php 
  require_once 'footer.php';

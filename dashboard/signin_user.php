@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	require_once 'dbcontext.php';
 	if ($_SERVER['REQUEST_METHOD']=="POST") {
 		$email = $_POST['email'];
@@ -15,9 +16,7 @@
 			if ($assoc>0) {
 				$hash = $assoc['password'];
 				if (password_verify($password, $hash)) {
-					$_SESSION['email'] = $assoc['email'];
 					$_SESSION['id'] = $assoc['id'];
-					$_SESSION['name'] = $assoc['name'];
 					mysqli_close($connection);
 					header("location: index.php");
 				}else{

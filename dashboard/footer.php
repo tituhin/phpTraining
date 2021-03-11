@@ -1,5 +1,5 @@
 
-    
+  </div>    
     <footer class="sl-footer">
         <div class="footer-left">
           <div class="mg-b-2">Copyright &copy; 2017. CIT. All Rights Reserved.</div>

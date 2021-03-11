@@ -1,6 +1,4 @@
 <?php 
-	
-	require_once 'dbcontext.php';
 	require_once 'session.php';
 	if (isset($_GET['user-delete'])){
 		$id_to_delete = $_GET['user-delete'];
@@ -11,7 +9,6 @@
 			header("location: index.php");
 		}
 		else{
-
 			header("location: page-notfound.php");
 		}
 	}
@@ -23,7 +20,7 @@
 		$email = $_POST['emailedit'];
 		$query = "UPDATE `users` SET name='$name' ,email='$email' WHERE id = '$id' ";
 		$update = mysqli_query($connection,$query);
-		echo "string";
+
 		if ($update) {
 			mysqli_close($connection);
 			$_SESSION['user_edited'] = "user successfully edited.";

@@ -1,7 +1,6 @@
 
 <?php 
 	require_once "header.php";
-	require_once 'dbcontext.php';
 	$users = mysqli_query($connection,"SELECT * FROM `users` WHERE status = 1");
 	mysqli_close($connection);
 ?>
@@ -15,6 +14,7 @@
 	    <a class="breadcrumb-item" href="index.php">CIT</a>
 	    <span class="breadcrumb-item active">Users</span>
 	</nav>
+<div class="sl-pagebody">
 
 <div class="card pd-20 pd-sm-40">
     <h6 class="card-body-title">User Table</h6>
@@ -59,7 +59,7 @@
 	            <td><?=$value['email']?></td>
 	            <td>
 	            	<a href="user-edit.php?user-edit=<?=$value['id'] ?>" class="btn btn-primary">Edit</a>
-	                <button data-id="<?=$value['id'] ?>" class="btn btn-danger deleteUser">Delete</button>
+	                <button data-id="<?=$value['id']?>"class="btn btn-danger deleteUser">Delete</button>
 	            </td>
 	        </tr>
    <?php } ?>
@@ -75,6 +75,7 @@
 	} );
 		// doing Sweet Alert
 	$('.deleteUser').click(function(){
+
 		let id = $(this).attr("data-id");
 		swal({
 			  title: "Are you sure?",
@@ -91,6 +92,7 @@
 			    window.setTimeout(function(){
 			    	window.location.href = "user-delete-edit.php?user-delete="+id;
 
+
 			    }, 5000);
 			  } else {
 			    swal("Your imaginary file is safe!");
@@ -98,4 +100,5 @@
 			});
 	})
 	</script>
+
 <?php require_once 'footer.php' ?>
