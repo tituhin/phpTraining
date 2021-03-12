@@ -10,15 +10,14 @@
 		$rePass = $_POST['repass'];
 		if (strlen($curentPass) >5 && strlen($newPass) >5 && strlen($rePass) >5)
 		{
-			$result = mysqli_fetch_assoc(mysqli_query($connection,
-														"SELECT password FROM users WHERE id = $id"));
+			$result = mysqli_fetch_assoc(
+				mysqli_query($connection,"SELECT password FROM users WHERE id = $id"));
 			if (password_verify($curentPass, $result['password'])) 
 			{
 				if ($newPass == $rePass)
 				{
 					$newPass = password_hash($newPass, PASSWORD_DEFAULT);
-					$setPass = mysqli_query($connection,
-											"UPDATE users SET password = '$newPass' WHERE id = $id");
+					$setPass = mysqli_query($connection,"UPDATE users SET password = '$newPass' WHERE id = $id");
 					$_SESSION['passchange']= "password change Successfully!";
 					header("location: change-password.php");
 				}

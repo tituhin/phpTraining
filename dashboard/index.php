@@ -15,10 +15,9 @@
 	    <span class="breadcrumb-item active">Users</span>
 	</nav>
 <div class="sl-pagebody">
-
-<div class="card pd-20 pd-sm-40">
-    <h6 class="card-body-title">User Table</h6>
-    <p class="mg-b-20 mg-sm-b-30">Using the most basic table markup.</p>
+<h3 class="text-dark body-title">User List</h3>
+<div class="card pd-10 pd-sm-40">
+    
     <?php if (isset($_SESSION['user_deleted'])) :?>
 	
 		<div class="alert alert-danger" role="alert">
@@ -73,7 +72,8 @@
 		$(document).ready( function () {
     $('#datatable').DataTable();
 	} );
-		// doing Sweet Alert
+		
+	 // Sweet Alert
 	$('.deleteUser').click(function(){
 
 		let id = $(this).attr("data-id");
@@ -93,7 +93,7 @@
 			    	window.location.href = "user-delete-edit.php?user-delete="+id;
 
 
-			    }, 5000);
+			    }, 3000);
 			  } else {
 			    swal("Your imaginary file is safe!");
 			  }

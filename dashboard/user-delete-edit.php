@@ -1,5 +1,6 @@
 <?php 
 	require_once 'session.php';
+	require_once 'dbcontext.php';
 	if (isset($_GET['user-delete'])){
 		$id_to_delete = $_GET['user-delete'];
 	
