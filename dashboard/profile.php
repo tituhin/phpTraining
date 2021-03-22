@@ -3,9 +3,10 @@
 	require_once 'session.php';
 	if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		$id = $_SESSION['id'];
-		$proname = $POST['proname'];
-		$proemail = $POST['proemail'];
-		$proimage = $POST['proimage'];
-
+		$proname = $_POST['proname'];
+		$proemail = $_POST['proemail'];
+		$proimage = $_FILES['proimage'];
+		print_r($proimage);
+		if($proimage['type'] != 
 	}
 ?>
