@@ -13,7 +13,7 @@
 			$select = "SELECT COUNT(*) as total, id,name,email,password,status,role FROM users WHERE email = '$email' ";
 			$query = mysqli_query($connection,$select);
 			$assoc = mysqli_fetch_assoc($query);
-			if ($assoc>0) {
+			if ($assoc > 0) {
 				$hash = $assoc['password'];
 				if (password_verify($password, $hash)) {
 					$_SESSION['id'] = $assoc['id'];
