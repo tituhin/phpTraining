@@ -34,7 +34,7 @@
 			$insertUser = mysqli_query($connection,$regQuery);
 			if($insertUser){
 				mysqli_close($connection);
-				$_SESSION['success'] = "Registration Succesfull. Login please!";
+				$_SESSION['success'] = "Registration Succesfull.<br> Login please!";
 				header("location: signin.php");
 			}else{
 				header("location: signup.php");

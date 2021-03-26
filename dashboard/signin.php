@@ -71,18 +71,18 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
-            <strong class="d-block d-sm-inline-block-force"> <?php if (isset($_SESSION['danger'])){ echo "Well done!";} ?></strong> <?php if (isset($_SESSION['danger'])) {
+            <strong class="d-block d-sm-inline-block-force"> <?php if (isset($_SESSION['danger'])){ echo "Well done!";} ?></strong> <br> <?php if (isset($_SESSION['danger'])) {
               echo $_SESSION['danger']; unset($_SESSION['danger']);
             } ?>
           </div> <?php } ?>
         <form action="./signin_user.php" method="post">
         <div class="form-group">
           <input type="email" class="form-control" placeholder="Enter your Email" name="email" required>
-        </div><!-- form-group -->
+        </div>
         <div class="form-group">
           <input type="password" class="form-control" placeholder="Enter your password" name="password" required>
           <a href="#" class="tx-info tx-12 d-block mg-t-10">Forgot password?</a>
-        </div><!-- form-group -->
+        </div>
 
 
         <button type="submit" class="btn btn-info btn-block">Sign In</button>
@@ -91,8 +91,8 @@
 
         <div class="mg-t-60 tx-center">Not yet a member? <a href="./signup.php" class="tx-info">Sign Up</a>
         </div>
-      </div><!-- login-wrapper -->
-    </div><!-- d-flex -->
+      </div>
+    </div>
 
     <script src="./assets/lib/jquery/jquery.js"></script>
     <script src="./assets/lib/popper.js/popper.js"></script>
