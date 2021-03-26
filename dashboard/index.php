@@ -43,6 +43,7 @@
         	<th>SL</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Email</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -56,6 +57,7 @@
 	            </td>
 	            <td><?=$value['name']?></td>
 	            <td><?=$value['email']?></td>
+	            <td><img width="50" src="upload/<?=$value['profileImage']?>"></td>
 	            <td>
 	            	<a href="user-edit.php?user-edit=<?=$value['id'] ?>" class="btn btn-primary">Edit</a>
 	                <button data-id="<?=$value['id']?>"class="btn btn-danger deleteUser">Delete</button>
