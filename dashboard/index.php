@@ -15,8 +15,7 @@
 	</nav>
 <div class="sl-pagebody">
 <h3 class="text-dark body-title">User List</h3>
-<div class="card pd-10 pd-sm-40">
-    
+<div class="card pd-10">
     <?php if (isset($_SESSION['user_deleted'])) :?>
 	
 		<div class="alert alert-danger" role="alert">
@@ -42,7 +41,8 @@
         	<th>SL</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Email</th>
+            <th>Image</th>
+            <th>Role</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -57,6 +57,19 @@
 	            <td><?=$value['name']?></td>
 	            <td><?=$value['email']?></td>
 	            <td><img width="50" src="upload/<?=$value['profileImage']?>"></td>
+	            <td class="text-center"> <strong>
+	            	<?php if ($value['role']==1) {
+	            		echo "User";
+	            	}
+	            	elseif ($value['role']==2) {
+	            		echo "Admin";
+	            	}
+	            	else{
+	            		echo "Employe";
+	            	}
+
+	            	 ?> </strong>
+	            </td>
 	            <td>
 	            	<a href="user-edit.php?user-edit=<?=$value['id'] ?>" class="btn btn-primary">Edit</a>
 	                <button data-id="<?=$value['id']?>"class="btn btn-danger deleteUser">Delete</button>

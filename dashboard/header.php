@@ -47,9 +47,12 @@
 
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="./assets/css/starlight.css">
+     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="./assets/lib/jquery/jquery.js"></script>
     <script src="./assets/lib/jquery/jquery.js"></script>
     <script src="./assets/lib/rickshaw/rickshaw.min.js"></script>
+   
+    
 
   </head>
 
@@ -77,17 +80,26 @@
         
         
         
-        <a href="#" class="sl-menu-link">
+        <a href="index.php" class="sl-menu-link ">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
+            <i class="menu-item-icon icon fa fa-users tx-20"></i>
             <span class="menu-item-label">Tables</span>
-            <i class="menu-item-arrow fa fa-angle-down"></i>
+            <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-        <ul class="sl-menu-sub nav flex-column">
+        <!-- <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="index.php" class="nav-link">Basic Table</a></li>
           <li class="nav-item"><a href="index.php" class="nav-link">Data Table</a></li>
-        </ul>
+        </ul> -->
+
+
+        <a href="social.php" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon fa fa-link tx-20"></i>
+            <span class="menu-item-label">All Socials</span>
+            <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
+          </div><!-- menu-item -->
+        </a>
         
         
         <a href="#" class="sl-menu-link">

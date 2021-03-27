@@ -2,7 +2,7 @@
   </div>    
     <footer class="sl-footer">
         <div class="footer-left">
-          <div class="mg-b-2">Copyright &copy; 2017. CIT. All Rights Reserved.</div>
+          <div class="mg-b-2">Copyright &copy; <?=date("Y")?>. CIT. All Rights Reserved.</div>
           <div>Made by ThemePixels.</div>
         </div>
         <div class="footer-right d-flex align-items-center">
@@ -31,6 +31,7 @@
     <script src="./assets/js/starlight.js"></script>
     <script src="./assets/js/ResizeSensor.js"></script>
     <script src="./assets/js/dashboard.js"></script>
+    
 
   </body>
 </html>
