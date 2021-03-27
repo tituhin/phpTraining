@@ -1,3 +1,9 @@
+<?php 
+    require_once 'dashboard/dbcontext.php'; 
+    $select_sql = " SELECT * FROM socials WHERE status = 'active'";
+    $query = mysqli_query($connection,$select_sql);
+
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -125,10 +131,12 @@
                                 <p class="wow fadeInUp" data-wow-delay="0.6s">I'm Will Smith, professional web developer with long time experience in this field​.</p>
                                 <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                     <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                        <?php foreach ($query as $key => $value) { 
+                                         if (++$key<=4): ?>
+                                            <? break;?>
+                                                <li><a target="_blank" href="<?=$value['link']?>"><i class="<?=$value['icon']?>"></i></a></li>                                                
+                                            <?php endif ?>
+                                        <?php  } ?>
                                     </ul>
                                 </div>
                                 <a href="#" class="btn wow fadeInUp" data-wow-delay="1s">SEE PORTFOLIOS</a>
