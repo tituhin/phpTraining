@@ -44,7 +44,6 @@
 		}else{
 			$_SESSION['null_image'] = "Please! select image.";
 			header ("location: edit-Profile.php");
-		}
-		
-	}	
+		}	
+	}
 ?>

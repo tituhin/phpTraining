@@ -1,4 +1,3 @@
-
 <?php 
 	require_once "header.php";
 	$users = mysqli_query($connection,"SELECT * FROM `users` WHERE status = 1");
