@@ -1,7 +1,7 @@
 <?php 
     require_once 'dashboard/dbcontext.php'; 
     $select_sql = " SELECT * FROM socials WHERE status = 'active'";
-    $query = mysqli_query($connection,$select_sql);
+    $social_query = mysqli_query($connection,$select_sql);
 
 ?>
 <!doctype html>
@@ -52,8 +52,8 @@
                         <div class="col-xl-12">
                             <div class="main-menu">
                                 <nav class="navbar navbar-expand-lg">
-                                    <a href="index.html" class="navbar-brand logo-sticky-none"><img src="front/img/logo/logo.png" alt="Logo"></a>
-                                    <a href="index.html" class="navbar-brand s-logo-none"><img src="front/img/logo/s_logo.png" alt="Logo"></a>
+                                    <a href="index.php" class="navbar-brand logo-sticky-none"><img src="front/img/logo/logo.png" alt="Logo"></a>
+                                    <a href="index.php" class="navbar-brand s-logo-none"><img src="front/img/logo/s_logo.png" alt="Logo"></a>
                                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                                         data-target="#navbarNav">
                                         <span class="navbar-icon"></span>
@@ -131,12 +131,12 @@
                                 <p class="wow fadeInUp" data-wow-delay="0.6s">I'm Will Smith, professional web developer with long time experience in this field​.</p>
                                 <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                     <ul>
-                                        <?php foreach ($query as $key => $value) { 
+                                        <?php foreach ($social_query as $key => $value) :
                                          if (++$key<=4): ?>
                                             <? break;?>
                                                 <li><a target="_blank" href="<?=$value['link']?>"><i class="<?=$value['icon']?>"></i></a></li>                                                
                                             <?php endif ?>
-                                        <?php  } ?>
+                                        <?php endforeach; ?>
                                     </ul>
                                 </div>
                                 <a href="#" class="btn wow fadeInUp" data-wow-delay="1s">SEE PORTFOLIOS</a>
@@ -249,16 +249,17 @@
                         </div>
                     </div>
 					<div class="row">
-						<div class="col-lg-4 col-md-6">
+                        <?php $service_query = mysqli_query($connection,"SELECT * FROM services WHERE status = 'active'");
+                              foreach ($service_query as $key => $value) :?>                                    
+                        <div class="col-lg-4 col-md-6">
 							<div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
-                                <i class="fab fa-react"></i>
-								<h3>Creative Design</h3>
-								<p>
-									Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.
-								</p>
+                                <i class="<?=$value['icon']?>"></i>
+								<h3><?=$value['name']?></h3>
+								<p><?=substr($value['summery'],0,90)."..."?></p>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-6">
+                    <?php endforeach; ?>
+						<!-- <div class="col-lg-4 col-md-6">
 							<div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.4s">
 								<i class="fab fa-free-code-camp"></i>
 								<h3>Unlimited Features</h3>
@@ -302,7 +303,7 @@
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.
 								</p>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</section>

@@ -70,7 +70,7 @@
 
       <label class="sidebar-label">Navigation</label>
       <div class="sl-sideleft-menu">
-        <a href="index.php" class="sl-menu-link active">
+        <a href="index.php" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
             <span class="menu-item-label">Dashboard</span>
@@ -83,7 +83,7 @@
         <a href="index.php" class="sl-menu-link ">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon fa fa-users tx-20"></i>
-            <span class="menu-item-label">Tables</span>
+            <span class="menu-item-label">Users</span>
             <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
@@ -97,6 +97,20 @@
           <div class="sl-menu-item">
             <i class="menu-item-icon icon fa fa-link tx-20"></i>
             <span class="menu-item-label">All Socials</span>
+            <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
+          </div><!-- menu-item -->
+        </a>
+        <a href="../index.php" target="_blank" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon fa fa-globe tx-20"></i>
+            <span class="menu-item-label">Home Page</span>
+            <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
+          </div><!-- menu-item -->
+        </a>
+        <a href="service.php" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon fa fa-handshake-o tx-20"></i>
+            <span class="menu-item-label">Services</span>
             <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
           </div><!-- menu-item -->
         </a>

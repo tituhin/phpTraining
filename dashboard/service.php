@@ -1,6 +1,6 @@
 <?php 
 	require_once "header.php";
-	$users = mysqli_query($connection,"SELECT * FROM `socials` WHERE status = 'active' ");
+	$users = mysqli_query($connection,"SELECT * FROM `services` WHERE status = 'active' ");
 	mysqli_close($connection);
 ?>
 
@@ -16,7 +16,7 @@
 <div class="sl-pagebody">
 <h3 class="text-center">All Social Links</h3>
 <div class="text-right mr-2 fw-3"> 
-	<strong><a class="text-right" href="social-add.php">
+	<strong><a class="text-right" href="service-add.php">
 	<i class="fa fa-plus"></i>Add</a></strong>
 </div>
 
@@ -27,7 +27,7 @@
         	<th>SL</th>
             <th>Name</th>
             <th>Icon</th>
-            <th>Link</th>
+            <th>Summery</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -37,10 +37,10 @@
 	    	<tr>
 	        	<td><label><?=++$key?></label></td>
 	            <td><?=$value['name']?></td>
-	            <td><i class="<?=str_replace('fab',fa,$value['icon'])?>"></i></td>
-	            <td><?=$value['link']?></td>
+	            <td><i class="<?=str_replace('fab','fa',$value['icon'])?>"></i></td>
+	            <td><?=substr($value['summery'],0,20)." .."?></td>
 	            <td >
-	            	<a href="social-edit.php?id=<?=$value['id'] ?>" class="btn btn-primary">Edit</a>
+	            	<a href="service-edit.php?id=<?=$value['id'] ?>" class="btn btn-primary">Edit</a>
 	                <button data-id="<?=$value['id']?>"class="btn btn-danger deleteUser">Delete</button>
 	            </td>
 	        </tr>
