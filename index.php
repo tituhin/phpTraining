@@ -132,11 +132,10 @@
                                 <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                     <ul>
                                         <?php foreach ($social_query as $key => $value) :
-                                         if (++$key<=4): ?>
-                                            <? break;?>
-                                                <li><a target="_blank" href="<?=$value['link']?>"><i class="<?=$value['icon']?>"></i></a></li>                                                
-                                            <?php endif ?>
-                                        <?php endforeach; ?>
+                                         if (++$key<=4):?>
+                                           <? break;?>
+                                                <li><a target="_blank" href="<?=$value['link']?>"><i class="<?=$value['icon']?>"></i></a></li>
+                                        <?php endif; endforeach; ?>
                                     </ul>
                                 </div>
                                 <a href="#" class="btn wow fadeInUp" data-wow-delay="1s">SEE PORTFOLIOS</a>
@@ -250,7 +249,8 @@
                     </div>
 					<div class="row">
                         <?php $service_query = mysqli_query($connection,"SELECT * FROM services WHERE status = 'active'");
-                              foreach ($service_query as $key => $value) :?>                                    
+                              foreach ($service_query as $key => $value) :
+                                if(++$key<=6):?> <? break;?> 
                         <div class="col-lg-4 col-md-6">
 							<div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
                                 <i class="<?=$value['icon']?>"></i>
@@ -258,7 +258,7 @@
 								<p><?=substr($value['summery'],0,90)."..."?></p>
 							</div>
 						</div>
-                    <?php endforeach; ?>
+                    <?php endif; endforeach; ?>
 						<!-- <div class="col-lg-4 col-md-6">
 							<div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.4s">
 								<i class="fab fa-free-code-camp"></i>
