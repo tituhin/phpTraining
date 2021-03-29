@@ -1,6 +1,7 @@
 <?php 
 	require_once "header.php";
-	$users = mysqli_query($connection,"SELECT * FROM `socials` WHERE status = 'active' ");
+	$query = mysqli_query($connection,"SELECT * FROM `settings`");
+	$row_cnt = mysqli_num_rows($query);
 	mysqli_close($connection);
 ?>
 
@@ -11,13 +12,17 @@
 
 	<nav class="breadcrumb sl-breadcrumb">
 	    <a class="breadcrumb-item" href="index.php">CIT</a>
-	    <span class="breadcrumb-item active">Social</span>
+	    <span class="breadcrumb-item active">System setting</span>
 	</nav>
 <div class="sl-pagebody">
-<h3 class="text-center">All Social Links</h3>
+<h3 class="text-center">System Settings</h3>
 <div class="text-right mr-2 fw-3"> 
-	<strong><a class="text-right" href="social-add.php">
-	<i class="fa fa-plus"></i>Add</a></strong>
+	<?php if ($row_cnt > 0): ?>
+			<strong><a class="text-right" href="service-edit.php"><i class="fa fa-edit"></i> Edit</a></strong>
+		<?php else: ?>
+			<strong><a class="text-right" href="service-add.php"><i class="fa fa-plus"></i>Add</a></strong>
+	<?php endif ?>
+	
 </div>
 
 	<div class="table-wrapper">
@@ -25,26 +30,28 @@
     <thead class="bg-grey text-center">
         <tr>
         	<th>SL</th>
-            <th>Name</th>
-            <th>Icon</th>
-            <th>Link</th>
-            <th>Actions</th>
+            <th>Logo</th>
+            <th>Copy Rights</th>
+            <th>Tagline</th>
+            <th>Office Address</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>About</th>
         </tr>
     </thead>
     <tbody>
    <?php 
-        foreach ($users as $key => $value) { ?> 
+        foreach ($query as $key => $value) : ?> 
 	    	<tr>
 	        	<td><label><?=++$key?></label></td>
-	            <td><?=$value['name']?></td>
-	            <td><i class="<?=str_replace('fab',fa,$value['icon'])?>"></i></td>
-	            <td><?=$value['link']?></td>
+	            <td><?=$value['logo']?></td>
+	            <td><?=$value['copyright']?></td>
+	            <td><?=$value['tagline']?></td>
 	            <td >
-	            	<a href="social-edit.php?id=<?=$value['id'] ?>" class="btn btn-primary">Edit</a>
-	                <button data-id="<?=$value['id']?>"class="btn btn-danger deleteUser">Delete</button>
+	            	
 	            </td>
 	        </tr>
-   <?php } ?>
+   <?php endforeach; ?>
             
  	</tbody>
    </table>

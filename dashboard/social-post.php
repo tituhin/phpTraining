@@ -7,16 +7,18 @@
 		if (!empty($name)&&!empty($icon)&&!empty($link)) {
 			$name = ucwords($name);
 			$link = strtolower($link);
-			if (!strpos($link,"https://")) {
+			$contain_http = strpos($link,"https://");
+			if ($contain_http!==0) { // https na thakle
 				$link = "https://".$link;
-				echo "in If"; die();
+				/*echo "in If<br>".$link; 
+				die();*/
 				$insert_sql = " INSERT INTO socials (name,icon,link) VALUES ('$name','$icon','$link') ";
 				$query = mysqli_query($connection,$insert_sql);
 				if ($query) {
 					header("location: social.php");
 				}
-			}else{
-				echo "in else"; die();
+			}else{ // https  thakle
+				// echo "in else<br>".$link;  die();
 				$insert_sql = " INSERT INTO socials (name,icon,link) VALUES ('$name','$icon','$link') ";
 				$query = mysqli_query($connection,$insert_sql);
 				if ($query) {
@@ -25,6 +27,9 @@
 			}
 		
 			
+		}else{
+			$_SESSION['blank_field']= "Require all field! Please!";
+			header("location: social-add.php");
 		}
 
 	}else{

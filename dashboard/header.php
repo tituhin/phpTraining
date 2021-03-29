@@ -90,8 +90,7 @@
         <!-- <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="index.php" class="nav-link">Basic Table</a></li>
           <li class="nav-item"><a href="index.php" class="nav-link">Data Table</a></li>
-        </ul> -->
-
+        </ul> -->        
 
         <a href="social.php" class="sl-menu-link">
           <div class="sl-menu-item">
@@ -100,13 +99,7 @@
             <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
           </div><!-- menu-item -->
         </a>
-        <a href="../index.php" target="_blank" class="sl-menu-link">
-          <div class="sl-menu-item">
-            <i class="menu-item-icon icon fa fa-globe tx-20"></i>
-            <span class="menu-item-label">Home Page</span>
-            <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
-          </div><!-- menu-item -->
-        </a>
+        
         <a href="service.php" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon fa fa-handshake-o tx-20"></i>
@@ -114,8 +107,25 @@
             <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
           </div><!-- menu-item -->
         </a>
+        <a href="setting.php" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon fa fa-cogs tx-20"></i>
+            <span class="menu-item-label">System Settings</span>
+            <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
+          </div><!-- menu-item -->
+        </a>
         
         
+
+
+        <a href="../index.php" target="_blank" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon fa fa-globe tx-20"></i>
+            <span class="menu-item-label">Home Page</span>
+            <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
+          </div><!-- menu-item -->
+        </a>
+
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-paper-outline tx-22"></i>

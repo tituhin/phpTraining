@@ -11,10 +11,10 @@
 
 	<nav class="breadcrumb sl-breadcrumb">
 	    <a class="breadcrumb-item" href="index.php">CIT</a>
-	    <span class="breadcrumb-item active">Users</span>
+	    <span class="breadcrumb-item active">Servies</span>
 	</nav>
 <div class="sl-pagebody">
-<h3 class="text-center">All Social Links</h3>
+<h3 class="text-center">Servies</h3>
 <div class="text-right mr-2 fw-3"> 
 	<strong><a class="text-right" href="service-add.php">
 	<i class="fa fa-plus"></i>Add</a></strong>
