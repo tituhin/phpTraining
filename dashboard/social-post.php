@@ -9,13 +9,14 @@
 			$link = strtolower($link);
 			if (!strpos($link,"https://")) {
 				$link = "https://".$link;
+				echo "in If"; die();
 				$insert_sql = " INSERT INTO socials (name,icon,link) VALUES ('$name','$icon','$link') ";
 				$query = mysqli_query($connection,$insert_sql);
 				if ($query) {
 					header("location: social.php");
 				}
 			}else{
-				
+				echo "in else"; die();
 				$insert_sql = " INSERT INTO socials (name,icon,link) VALUES ('$name','$icon','$link') ";
 				$query = mysqli_query($connection,$insert_sql);
 				if ($query) {
