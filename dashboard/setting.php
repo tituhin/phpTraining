@@ -18,9 +18,9 @@
 <h3 class="text-center">System Settings</h3>
 <div class="text-right mr-2 fw-3"> 
 	<?php if ($row_cnt > 0): ?>
-			<strong><a class="text-right" href="service-edit.php"><i class="fa fa-edit"></i> Edit</a></strong>
+			<strong><a class="text-right" href="setting-add.php"><i class="fa fa-edit"></i> Edit</a></strong>
 		<?php else: ?>
-			<strong><a class="text-right" href="service-add.php"><i class="fa fa-plus"></i>Add</a></strong>
+			<strong><a class="text-right" href="setting-add.php"><i class="fa fa-plus"></i>Add</a></strong>
 	<?php endif ?>
 	
 </div>
@@ -46,7 +46,11 @@
 	        	<td><label><?=++$key?></label></td>
 	            <td><?=$value['logo']?></td>
 	            <td><?=$value['copyright']?></td>
-	            <td><?=$value['tagline']?></td>
+	             <td><?=$value['tagline']?></td>
+	            <td><?=$value['office_address']?></td>
+	            <td><?=$value['email']?></td>
+	            <td><?=$value['phone']?></td>
+	            <td><?=substr($value['about'],0,50)?></td>
 	            <td >
 	            	
 	            </td>

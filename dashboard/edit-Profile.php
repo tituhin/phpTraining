@@ -42,7 +42,7 @@
             </div>
             <div class="col-6 pd-20 mt-1">
               <label class="text-dark tx-bold">Preview:<span class="tx-danger">*</span></label> <br>
-              <img class="mx-auto rounded" id="image_id" width="150" src="upload/<?=$assoc['profileImage']?>">
+              <img class="mx-auto rounded" id="image_id" width="150"  src="upload/<?=$assoc['profileImage']?>">
             </div>
             
         </div>
