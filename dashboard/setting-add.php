@@ -71,9 +71,11 @@
             </div>        
              <div class="col pd-auto mx-auto text-center">
               <?php if ($row_cnt < 1): ?>
-                <button type="submit" value="add" name="submit" class="btn btn-outline-success"><i class="icon fa fa-plus"></i> Submit</button>
+                <button type="submit" value="add" name="submit" class="btn btn-outline-primary"><i class="icon fa fa-plus"></i> Submit</button>
                 <?php else: ?> 
                     <button type="submit" value="update" name="submit" class="btn btn-outline-success"><i class="icon fa fa-edit"></i> Update</button>
+                    <button type="submit" value="update" name="submit" class="display-6 btn btn-outline-warning"><a href="setting.php"><i class="icon fa fa-window-close"></i> Back</a></button>
+
               <?php endif ?>
             </div>
             </div>

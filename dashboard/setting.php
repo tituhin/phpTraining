@@ -29,8 +29,7 @@
     <table class="table display responsive nowrap" > <!-- id="datatable" eta bad dici -->
     <thead class="bg-grey text-center">
         <tr>
-        	<th>SL</th>
-            <th>Logo</th>
+        	<th>Logo</th>
             <th>Copy Rights</th>
             <th>Tagline</th>
             <th>Office Address</th>
@@ -42,18 +41,14 @@
     <tbody>
    <?php 
         foreach ($query as $key => $value) : ?> 
-	    	<tr>
-	        	<td><label><?=++$key?></label></td>
+	    	<tr>	        	
 	            <td><?=$value['logo']?></td>
 	            <td><?=$value['copyright']?></td>
 	             <td><?=$value['tagline']?></td>
 	            <td><?=$value['office_address']?></td>
 	            <td><?=$value['email']?></td>
 	            <td><?=$value['phone']?></td>
-	            <td><?=substr($value['about'],0,50)?></td>
-	            <td >
-	            	
-	            </td>
+	            <td><?=substr($value['about'],0)?></td>
 	        </tr>
    <?php endforeach; ?>
             
