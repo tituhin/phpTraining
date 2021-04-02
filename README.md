@@ -1,2 +1,2 @@
 # A Dynamic Portfolio website in php
-# With a full functional Dashboard. 
+# With a fully functional Dashboard. 
