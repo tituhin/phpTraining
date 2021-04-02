@@ -107,7 +107,7 @@
         
         <a href="service.php" class="sl-menu-link <?= $active_location == 'service.php' ? 'active' : '' ?>">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon fa fa-handshake-o tx-20"></i>
+            <i class="menu-item-icon icon fa fa-code tx-20"></i>
             <span class="menu-item-label">Services</span>
             <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
           </div><!-- menu-item -->
@@ -131,6 +131,13 @@
           <div class="sl-menu-item">
             <i class="menu-item-icon icon fa fa-briefcase tx-20"></i>
             <span class="menu-item-label">Portfolio</span>
+            <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
+          </div><!-- menu-item -->
+        </a>
+        <a href="partners.php" class="sl-menu-link <?= $active_location == 'partners.php' ? 'active' : '' ?>">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon fa fa-handshake-o tx-20"></i>
+            <span class="menu-item-label">Partners</span>
             <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
           </div><!-- menu-item -->
         </a>

@@ -1,125 +1,7 @@
-<?php 
-    require_once 'dashboard/dbcontext.php'; 
-    $select_sql = " SELECT * FROM socials WHERE status = 'active'";
-    $social_query = mysqli_query($connection,$select_sql);
-    $education_query = mysqli_query($connection,"SELECT * FROM `education` ORDER BY year DESC ");
-    $setting_query = mysqli_fetch_assoc(mysqli_query($connection,"SELECT COUNT(*) as total, logo, copyright,tagline,office_address,email,phone,about FROM `settings`"));
-    $service_query = mysqli_query($connection,"SELECT * FROM services WHERE status = 'active'");
-    $portfolio_query = mysqli_query($connection,"SELECT * FROM `portfolios`");
-    mysqli_close($connection);
-
+<?php require_once "header.php"; 
+$settingname=explode(" ",$setting_query['name']);
+$settingname = end($settingname);
 ?>
-<!doctype html>
-<html class="no-js" lang="en">
-
-<!-- Mirrored from themebeyond.com/html/kufa/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Feb 2020 06:27:43 GMT -->
-<head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Kufa - Personal Portfolio HTML5 Template</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="shortcut icon" type="image/x-icon" href="front/front/img/favicon.png">
-        <!-- Place favicon.ico in the root directory -->
-
-		<!-- CSS here -->
-        <link rel="stylesheet" href="front/css/bootstrap.min.css">
-        <link rel="stylesheet" href="front/css/animate.min.css">
-        <link rel="stylesheet" href="front/css/magnific-popup.css">
-        <link rel="stylesheet" href="front/css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="front/css/flaticon.css">
-        <link rel="stylesheet" href="front/css/slick.css">
-        <link rel="stylesheet" href="front/css/aos.css">
-        <link rel="stylesheet" href="front/css/default.css">
-        <link rel="stylesheet" href="front/css/style.css">
-        <link rel="stylesheet" href="front/css/responsive.css">
-    </head>
-    <body class="theme-bg">
-
-        <!-- preloader -->
-        <div id="preloader">
-            <div id="loading-center">
-                <div id="loading-center-absolute">
-                    <div class="object" id="object_one"></div>
-                    <div class="object" id="object_two"></div>
-                    <div class="object" id="object_three"></div>
-                </div>
-            </div>
-        </div>
-        <!-- preloader-end -->
-
-        <!-- header-start -->
-        <header>
-            <div id="header-sticky" class="transparent-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="main-menu">
-                                <nav class="navbar navbar-expand-lg">
-                                    <a href="index.php" class="navbar-brand logo-sticky-none"><img src="front/img/logo/logo.png" alt="Logo"></a>
-                                    <a href="index.php" class="navbar-brand s-logo-none"><img src="front/img/logo/<?=$setting_query['logo']?>" alt="Logo"></a>
-                                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                        data-target="#navbarNav">
-                                        <span class="navbar-icon"></span>
-                                        <span class="navbar-icon"></span>
-                                        <span class="navbar-icon"></span>
-                                    </button>
-                                    <div class="collapse navbar-collapse" id="navbarNav">
-                                        <ul class="navbar-nav ml-auto">
-                                            <li class="nav-item active"><a class="nav-link" href="#home">Home</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="#about">about</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="#service">service</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="#portfolio">portfolio</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="header-btn">
-                                        <a href="#" class="off-canvas-menu menu-tigger"><i class="flaticon-menu"></i></a>
-                                    </div>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- offcanvas-start -->
-            <div class="extra-info">
-                <div class="close-icon menu-close">
-                    <button>
-                        <i class="far fa-window-close"></i>
-                    </button>
-                </div>
-                <div class="logo-side mb-30">
-                    <a href="index-2.html">
-                        <img src="front/img/logo/logo.png" alt="" />
-                    </a>
-                </div>
-                <div class="side-info mb-30">
-                    <div class="contact-list mb-30">
-                        <h4>Office Address</h4>
-                        <p><?=$setting_query['office_address']?></p>
-                    </div>
-                    <div class="contact-list mb-30">
-                        <h4>Phone Number</h4>
-                        <p><?="+".$setting_query['phone']?></p>
-                    </div>
-                    <div class="contact-list mb-30">
-                        <h4>Email Address</h4>
-                        <p><?=$setting_query['email']?></p>
-                    </div>
-                </div>
-                <div class="social-icon-right mt-20">
-                    <?php foreach ($social_query as $key => $value): ?>
-                        <?php if ($key<=3): ?>
-                            <? break;?>
-                    <a href="<?=$value['link']?>"><i class="<?=$value['icon']?>"></i></a>
-                    <?php endif; endforeach ?>
-                </div>
-            </div>
-            <div class="offcanvas-overly"></div>
-            <!-- offcanvas-end -->
-        </header>
         <!-- header-end -->
 
         <!-- main-area -->
@@ -128,12 +10,12 @@
             <!-- banner-area -->
             <section id="home" class="banner-area banner-bg fix">
                 <div class="container">
-                    <div class="row align-items-center">
+                    <div class="row align-items-center"> 
                         <div class="col-xl-7 col-lg-6">
                             <div class="banner-content">
                                 <h6 class="wow fadeInUp" data-wow-delay="0.2s">HELLO!</h6>
-                                <h2 class="wow fadeInUp" data-wow-delay="0.4s">I am Will Smith</h2>
-                                <p class="wow fadeInUp" data-wow-delay="0.6s">I'm Will Smith, <?=" ".$setting_query['tagline']?>.</p>
+                                <h2 class="wow fadeInUp" data-wow-delay="0.4s">I am <?=$settingname?> </h2>
+                                <p class="wow fadeInUp" data-wow-delay="0.6s">I'm Will <?=$settingname?>, <?=" ".$setting_query['tagline']?>.</p>
                                 <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                     <ul>
                                         <?php foreach ($social_query as $key => $value) :
@@ -148,7 +30,7 @@
                         </div>
                         <div class="col-xl-5 col-lg-6 d-none d-lg-block">
                             <div class="banner-img text-right">
-                                <img src="front/img/banner/banner_img.png" alt="">
+                                <img src="dashboard/upload/<?=$setting_query['image']?>" alt="">
                             </div>
                         </div>
                     </div>
@@ -289,8 +171,8 @@
 								</div>
 								<div class="speaker-overlay">
 									<span><?=$value['category']?></span>
-									<h4><a href="#"><?=$value['title']?></a></h4>
-									<a href="#" class="arrow-btn">More information <span></span></a>
+									<h4><a target="_blank" href="portfolio-single.php?id=<?=$value['id']?>"><?=$value['title']?></a></h4>
+									<a target="_blank" href="portfolio-single.php?id=<?=$value['id']?>" class="arrow-btn">More information <span></span></a>
 								</div>
 							</div>
                         </div>
@@ -462,15 +344,20 @@
             <!-- testimonial-area-end -->
 
             <!-- brand-area -->
+
+                
+            
             <div class="barnd-area pt-100 pb-100">
                 <div class="container">
                     <div class="row brand-active">
+                         <?php foreach ($partners_query as $key => $value): ?>
                         <div class="col-xl-2">
                             <div class="single-brand">
-                                <img src="front/img/brand/brand_img01.png" alt="img">
+                                <img src="dashboard/image/brand/<?=$value['logo']?>" width="150" height="70" alt="<?=$value['name']."image"?>">
                             </div>
                         </div>
-                        <div class="col-xl-2">
+                        <?php endforeach ?>
+                        <!-- <div class="col-xl-2">
                             <div class="single-brand">
                                 <img src="front/img/brand/brand_img02.png" alt="img">
                             </div>
@@ -494,7 +381,7 @@
                             <div class="single-brand">
                                 <img src="front/img/brand/brand_img03.png" alt="img">
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -540,43 +427,5 @@
         <!-- main-area-end -->
 
         <!-- footer -->
-        <footer>
-            <div class="copyright-wrap">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-12">
-                            <div class="copyright-text text-center">
-                                <p>Copyright© <span><?=$setting_query['copyright']?></span> | All Rights Reserved</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- footer-end -->
-
-
-
-
-
-		<!-- JS here -->
-        <script src="front/js/vendor/jquery-1.12.4.min.js"></script>
-        <script src="front/js/popper.min.js"></script>
-        <script src="front/js/bootstrap.min.js"></script>
-        <script src="front/js/isotope.pkgd.min.js"></script>
-        <script src="front/js/one-page-nav-min.js"></script>
-        <script src="front/js/slick.min.js"></script>
-        <script src="front/js/ajax-form.js"></script>
-        <script src="front/js/wow.min.js"></script>
-        <script src="front/js/aos.js"></script>
-        <script src="front/js/jquery.waypoints.min.js"></script>
-        <script src="front/js/jquery.counterup.min.js"></script>
-        <script src="front/js/jquery.scrollUp.min.js"></script>
-        <script src="front/js/imagesloaded.pkgd.min.js"></script>
-        <script src="front/js/jquery.magnific-popup.min.js"></script>
-        <script src="front/js/plugins.js"></script>
-        <script src="front/js/main.js"></script>
-    </body>
-
-<!-- Mirrored from themebeyond.com/html/kufa/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Feb 2020 06:28:17 GMT -->
-</html>
+        
+<?php require_once "footer.php"; ?>

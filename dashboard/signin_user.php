@@ -5,7 +5,6 @@
 		$email = $_POST['email'];
 		$password  = $_POST['password'];
 		if (empty($email) || empty($password) || strlen($email)<6 || strlen($password)<6 ) {
-			
 			$_SESSION['danger']="Wrong Password or email.";
 			header("location: signin.php");
 		}
