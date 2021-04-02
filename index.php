@@ -410,10 +410,10 @@ $settingname = end($settingname);
                         </div>
                         <div class="col-lg-6">
                             <div class="contact-form">
-                                <form action="#">
-                                    <input type="text" placeholder="your name *">
-                                    <input type="email" placeholder="your email *">
-                                    <textarea name="message" id="message" placeholder="your message *"></textarea>
+                                <form action="dashboard/message-post.php" method="post">
+                                    <input type="text" placeholder="your name *" name="name">
+                                    <input type="email" placeholder="your email *" name="email">
+                                    <textarea name="message" id="message" placeholder="your message *" name="message"></textarea>
                                     <button class="btn">SEND</button>
                                 </form>
                             </div>

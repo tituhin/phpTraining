@@ -141,6 +141,13 @@
             <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
           </div><!-- menu-item -->
         </a>
+        <a href="message.php" class="sl-menu-link <?= $active_location == 'message.php' ? 'active' : '' ?>">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon fa fa-envelope tx-20" style="color:red"></i>
+            <span class="menu-item-label">Messages</span>
+            <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
+          </div><!-- menu-item -->
+        </a>
         
 
 
