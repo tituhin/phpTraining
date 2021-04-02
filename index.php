@@ -2,6 +2,11 @@
     require_once 'dashboard/dbcontext.php'; 
     $select_sql = " SELECT * FROM socials WHERE status = 'active'";
     $social_query = mysqli_query($connection,$select_sql);
+    $education_query = mysqli_query($connection,"SELECT * FROM `education` ORDER BY year DESC ");
+    $setting_query = mysqli_fetch_assoc(mysqli_query($connection,"SELECT COUNT(*) as total, logo, copyright,tagline,office_address,email,phone,about FROM `settings`"));
+    $service_query = mysqli_query($connection,"SELECT * FROM services WHERE status = 'active'");
+    $portfolio_query = mysqli_query($connection,"SELECT * FROM `portfolios`");
+    mysqli_close($connection);
 
 ?>
 <!doctype html>
@@ -53,7 +58,7 @@
                             <div class="main-menu">
                                 <nav class="navbar navbar-expand-lg">
                                     <a href="index.php" class="navbar-brand logo-sticky-none"><img src="front/img/logo/logo.png" alt="Logo"></a>
-                                    <a href="index.php" class="navbar-brand s-logo-none"><img src="front/img/logo/s_logo.png" alt="Logo"></a>
+                                    <a href="index.php" class="navbar-brand s-logo-none"><img src="front/img/logo/<?=$setting_query['logo']?>" alt="Logo"></a>
                                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                                         data-target="#navbarNav">
                                         <span class="navbar-icon"></span>
@@ -93,23 +98,23 @@
                 <div class="side-info mb-30">
                     <div class="contact-list mb-30">
                         <h4>Office Address</h4>
-                        <p>123/A, Miranda City Likaoli
-                            Prikano, Dope</p>
+                        <p><?=$setting_query['office_address']?></p>
                     </div>
                     <div class="contact-list mb-30">
                         <h4>Phone Number</h4>
-                        <p>+0989 7876 9865 9</p>
+                        <p><?="+".$setting_query['phone']?></p>
                     </div>
                     <div class="contact-list mb-30">
                         <h4>Email Address</h4>
-                        <p>info@example.com</p>
+                        <p><?=$setting_query['email']?></p>
                     </div>
                 </div>
                 <div class="social-icon-right mt-20">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <?php foreach ($social_query as $key => $value): ?>
+                        <?php if ($key<=3): ?>
+                            <? break;?>
+                    <a href="<?=$value['link']?>"><i class="<?=$value['icon']?>"></i></a>
+                    <?php endif; endforeach ?>
                 </div>
             </div>
             <div class="offcanvas-overly"></div>
@@ -128,7 +133,7 @@
                             <div class="banner-content">
                                 <h6 class="wow fadeInUp" data-wow-delay="0.2s">HELLO!</h6>
                                 <h2 class="wow fadeInUp" data-wow-delay="0.4s">I am Will Smith</h2>
-                                <p class="wow fadeInUp" data-wow-delay="0.6s">I'm Will Smith, professional web developer with long time experience in this field​.</p>
+                                <p class="wow fadeInUp" data-wow-delay="0.6s">I'm Will Smith, <?=" ".$setting_query['tagline']?>.</p>
                                 <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                     <ul>
                                         <?php foreach ($social_query as $key => $value) :
@@ -167,69 +172,25 @@
                                 <h2>About Me</h2>
                             </div>
                             <div class="about-content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, sed repudiandae odit deserunt, quas
-                                    quibusdam necessitatibus nesciunt eligendi esse sit non reprehenderit quisquam asperiores maxime
-                                    blanditiis culpa vitae velit. Numquam!</p>
+                                <p><?=nl2br($setting_query['about'])?>!</p>
                                 <h3>Education:</h3>
                             </div>
                             <!-- Education Item -->
+                        <?php foreach ($education_query as $key => $value): ?>
+                                                          
                             <div class="education">
-                                <div class="year">2020</div>
+                                <div class="year"><?=$value['year']?></div>
                                 <div class="line"></div>
                                 <div class="location">
-                                    <span>PHD of Interaction Design &amp; Animation</span>
+                                    <span><?=$value['degree']?></span>
                                     <div class="progressWrapper">
                                         <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width:<?=$value['percentage']?>%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- End Education Item -->
-                            <!-- Education Item -->
-                            <div class="education">
-                                <div class="year">2016</div>
-                                <div class="line"></div>
-                                <div class="location">
-                                    <span>Master of Database Administration</span>
-                                    <div class="progressWrapper">
-                                        <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Education Item -->
-                            <!-- Education Item -->
-                            <div class="education">
-                                <div class="year">2010</div>
-                                <div class="line"></div>
-                                <div class="location">
-                                    <span>Bachelor of Computer Engineering</span>
-                                    <div class="progressWrapper">
-                                        <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Education Item -->
-                            <!-- Education Item -->
-                            <div class="education">
-                                <div class="year">2005</div>
-                                <div class="line"></div>
-                                <div class="location">
-                                    <span>Diploma of Computer</span>
-                                    <div class="progressWrapper">
-                                        <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Education Item -->
+                        <?php endforeach ?>
                         </div>
                     </div>
                 </div>
@@ -248,9 +209,8 @@
                         </div>
                     </div>
 					<div class="row">
-                        <?php $service_query = mysqli_query($connection,"SELECT * FROM services WHERE status = 'active'");
-                              foreach ($service_query as $key => $value) :
-                                if(++$key<=6):?> <? break;?> 
+                        <?php foreach ($service_query as $key => $value) :?>
+                               <?php if(++$key<=6):?> <? break;?> 
                         <div class="col-lg-4 col-md-6">
 							<div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
                                 <i class="<?=$value['icon']?>"></i>
@@ -321,19 +281,21 @@
                         </div>
                     </div>
                     <div class="row">
+                        <?php foreach ($portfolio_query as $key => $value): ?>
                         <div class="col-lg-4 col-md-6 pitem">
                             <div class="speaker-box">
 								<div class="speaker-thumb">
-									<img src="front/img/images/1.jpg" alt="img">
+									<img src="dashboard/image/<?=$value['thumbnail']?>" alt="img">
 								</div>
 								<div class="speaker-overlay">
-									<span>Design</span>
-									<h4><a href="portfolio-single.html">Hamble Triangle</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
+									<span><?=$value['category']?></span>
+									<h4><a href="#"><?=$value['title']?></a></h4>
+									<a href="#" class="arrow-btn">More information <span></span></a>
 								</div>
 							</div>
                         </div>
-                        <div class="col-lg-4 col-md-6 pitem">
+                         <?php endforeach ?>
+                        <!-- <div class="col-lg-4 col-md-6 pitem">
                             <div class="speaker-box">
 								<div class="speaker-thumb">
 									<img src="front/img/images/2.jpg" alt="img">
@@ -369,8 +331,8 @@
 								</div>
 							</div>
                         </div>
-                        <div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
+                        <div class="col-lg-4 col-md-6 pitem"> -->
+                           <!--  <div class="speaker-box">
 								<div class="speaker-thumb">
 									<img src="front/img/images/5.jpg" alt="img">
 								</div>
@@ -392,7 +354,7 @@
 									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
 								</div>
 							</div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </section>
@@ -584,7 +546,7 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="copyright-text text-center">
-                                <p>Copyright© <span>Kufa</span> | All Rights Reserved</p>
+                                <p>Copyright© <span><?=$setting_query['copyright']?></span> | All Rights Reserved</p>
                             </div>
                         </div>
                     </div>

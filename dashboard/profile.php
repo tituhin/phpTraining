@@ -17,7 +17,7 @@
 					// $new_name = rand(1, 3000).$id.".".$extention;
 					$new_name = $id.".".$extention;
 					$new_location = "upload/".$new_name;
-					$img_check = " SELECT * FROM users WHERE id = $id ";
+					$img_check = "SELECT * FROM users WHERE id = $id ";
 					$img_query = mysqli_query($connection, $img_check);
 					$assoc = mysqli_fetch_assoc($img_query);
 					$old_file = "upload/".$assoc['profileImage'];

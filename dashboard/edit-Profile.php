@@ -1,7 +1,6 @@
 
 <?php
   require_once 'header.php';
-  // $id = $_SESSION['id'];
 	$q = mysqli_query($connection,"select * from `users` where id = $id");
 	$assoc = mysqli_fetch_assoc($q);
   ?>

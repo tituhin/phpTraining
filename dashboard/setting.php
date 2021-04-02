@@ -30,7 +30,7 @@
     <thead class="bg-grey text-center">
         <tr>
         	<th>Logo</th>
-            <th>Copy Rights</th>
+            <th>Copyrights</th>
             <th>Tagline</th>
             <th>Office Address</th>
             <th>Email</th>

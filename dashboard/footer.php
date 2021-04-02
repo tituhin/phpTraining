@@ -27,6 +27,9 @@
     <script src="./assets/lib/Flot/jquery.flot.pie.js"></script>
     <script src="./assets/lib/Flot/jquery.flot.resize.js"></script>
     <script src="./assets/lib/flot-spline/jquery.flot.spline.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script src="./assets/js/starlight.js"></script>
     <script src="./assets/js/ResizeSensor.js"></script>

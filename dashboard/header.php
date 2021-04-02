@@ -5,6 +5,8 @@
   $select = " select * from users where id = $id ";
   $query = mysqli_query($connection,$select);
   $globalAssoc = mysqli_fetch_assoc($query);
+  $file_location = explode("/",$_SERVER['PHP_SELF']);
+  $active_location = end($file_location);
 ?>
 
 <!DOCTYPE html>
@@ -44,13 +46,16 @@
     <link href="./assets/lib/Ionicons/css/ionicons.css" rel="stylesheet">
     <link href="./assets/lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
     <link href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
 
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="./assets/css/starlight.css">
-     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="./assets/lib/jquery/jquery.js"></script>
     <script src="./assets/lib/jquery/jquery.js"></script>
     <script src="./assets/lib/rickshaw/rickshaw.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
    
     
 
@@ -59,7 +64,7 @@
   <body>
 
     <!-- ########## START: LEFT PANEL ########## -->
-    <div class="sl-logo"><a href="index.php"><i class="icon ion-android-star-outline"></i> starlight</a></div>
+    <div class="sl-logo"><a href="dashboard.php"><i class="icon ion-android-star-outline"></i> CIT</a></div>
     <div class="sl-sideleft">
       <div class="input-group input-group-search">
         <input type="search" name="search" class="form-control" placeholder="Search">
@@ -70,7 +75,7 @@
 
       <label class="sidebar-label">Navigation</label>
       <div class="sl-sideleft-menu">
-        <a href="index.php" class="sl-menu-link">
+        <a href="dashboard.php" class="sl-menu-link <?= $active_location == 'dashboard.php' ? 'active' : '' ?> ">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
             <span class="menu-item-label">Dashboard</span>
@@ -80,9 +85,9 @@
         
         
         
-        <a href="index.php" class="sl-menu-link ">
+        <a href="index.php" class="sl-menu-link <?= $active_location == 'index.php' ? 'active' : '' ?> ">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon fa fa-users tx-20"></i>
+            <i class="menu-item-icon icon fa fa-user tx-20"></i>
             <span class="menu-item-label">Users</span>
             <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
           </div><!-- menu-item -->
@@ -92,29 +97,43 @@
           <li class="nav-item"><a href="index.php" class="nav-link">Data Table</a></li>
         </ul> -->        
 
-        <a href="social.php" class="sl-menu-link">
+        <a href="social.php" class="sl-menu-link <?= $active_location == 'social.php' ? 'active' : '' ?>">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon fa fa-link tx-20"></i>
-            <span class="menu-item-label">All Socials</span>
+            <span class="menu-item-label">Socials</span>
             <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
           </div><!-- menu-item -->
         </a>
         
-        <a href="service.php" class="sl-menu-link">
+        <a href="service.php" class="sl-menu-link <?= $active_location == 'service.php' ? 'active' : '' ?>">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon fa fa-handshake-o tx-20"></i>
             <span class="menu-item-label">Services</span>
             <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
           </div><!-- menu-item -->
         </a>
-        <a href="setting.php" class="sl-menu-link">
+        <a href="setting.php" class="sl-menu-link <?= $active_location == 'setting.php' ? 'active' : '' ?>">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon fa fa-cogs tx-20"></i>
-            <span class="menu-item-label">System Settings</span>
+            <i class="menu-item-icon icon fa fa-wrench tx-20"></i>
+            <span class="menu-item-label">Settings</span>
             <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
           </div><!-- menu-item -->
         </a>
-        
+
+        <a href="education.php" class="sl-menu-link <?= $active_location == 'education.php' ? 'active' : '' ?>">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon fa fa-graduation-cap tx-20"></i>
+            <span class="menu-item-label">Education</span>
+            <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
+          </div><!-- menu-item -->
+        </a>        
+        <a href="portfolio.php" class="sl-menu-link <?= $active_location == 'portfolio.php' ? 'active' : '' ?>">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon fa fa-briefcase tx-20"></i>
+            <span class="menu-item-label">Portfolio</span>
+            <!-- <i class="menu-item-arrow fa fa-angle-down"></i> -->
+          </div><!-- menu-item -->
+        </a>
         
 
 
