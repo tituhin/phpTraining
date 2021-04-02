@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2021 at 04:03 PM
+-- Generation Time: Apr 02, 2021 at 09:07 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -42,6 +42,31 @@ INSERT INTO `education` (`id`, `degree`, `year`, `percentage`) VALUES
 (1, 'Secondary School Certificate', '2012', 82),
 (2, 'Higher Secondary School Certificate', '2014', 86),
 (3, 'B. Sc. In Computer Science & Engineering', '2019', 62);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `partners`
+--
+
+CREATE TABLE `partners` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `logo` varchar(255) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=active, 2=inactive'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `partners`
+--
+
+INSERT INTO `partners` (`id`, `name`, `logo`, `status`) VALUES
+(1, 'Dell Inc', 'dell inc.jpg', 1),
+(2, 'New Sun', 'new sun.png', 1),
+(3, 'Splash Event', 'splash event.png', 1),
+(4, 'Pertu Poppers', 'pertu poppers.png', 1),
+(5, 'HP', 'hp.png', 1),
+(6, 'Ubuntu Linux', 'ubuntu linux.png', 1);
 
 -- --------------------------------------------------------
 
@@ -97,6 +122,8 @@ INSERT INTO `services` (`id`, `name`, `icon`, `summery`, `status`) VALUES
 
 CREATE TABLE `settings` (
   `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL DEFAULT 'tuhin.png',
   `logo` varchar(255) DEFAULT 'logo.png',
   `copyright` varchar(255) DEFAULT NULL,
   `tagline` varchar(255) DEFAULT NULL,
@@ -110,8 +137,8 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `logo`, `copyright`, `tagline`, `office_address`, `email`, `phone`, `about`) VALUES
-(1, 'logo.png', 'Hello Kufa', 'Professional Web Development with long experience in the field.', 'Dhanmondi, Dhaka, 1205.', 'tarequlislam105150@gmail.com', 8801718404051, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.');
+INSERT INTO `settings` (`id`, `name`, `image`, `logo`, `copyright`, `tagline`, `office_address`, `email`, `phone`, `about`) VALUES
+(1, 'Tariqul Islam Tuhin', 'tuhin.png', 'logo.png', 'Hello Kufa', 'Professional Web Development with long experience in the field.', 'Dhanmondi, Dhaka, 1205.', 'tarequlislam105150@gmail.com', 8801718404051, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.');
 
 -- --------------------------------------------------------
 
@@ -177,6 +204,12 @@ ALTER TABLE `education`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `partners`
+--
+ALTER TABLE `partners`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `portfolios`
 --
 ALTER TABLE `portfolios`
@@ -217,6 +250,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `education`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `partners`
+--
+ALTER TABLE `partners`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `portfolios`
