@@ -1,6 +1,6 @@
 <?php 
 	require_once "header.php";
-	$messages_query = mysqli_query($connection,"SELECT * FROM `messages`");
+	$messages_query = mysqli_query($connection,"SELECT * FROM `messages` ORDER BY id DESC");
 	
 ?>
 
@@ -34,8 +34,8 @@
     <tbody>
    <?php 
         foreach ($messages_query as $key => $value) { ?> 
-	    	<tr <?php if ($value['status']==1): ?>
-	    		style="font-weight: bold;"
+	    	<tr class="mx-auto" <?php if ($value['status']==1): ?>
+	    		style="font-weight: bold; font-size: 18px;"
 	    	<?php endif ?> >
 	        	<td><label><?=++$key?></label></td>
 	            <td><?=$value['name']?></td>

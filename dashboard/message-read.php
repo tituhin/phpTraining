@@ -6,11 +6,9 @@
 	// echo $assoc['status'];die();
 	if ($assoc['status']==1) {
 		$sql=mysqli_query($connection,"UPDATE messages SET status = 2 WHERE id = $id ");
-
 		header("location: message.php");
 	}else{
 		$sql=mysqli_query($connection,"UPDATE messages SET status = 1 WHERE id = $id ");
 		header("location: message.php");
 	}
-
  ?>
